@@ -6,7 +6,7 @@ import {useIndexSelection} from '@/utils/indexSelection.ts';
 import {useClickOutside} from '@/utils/useClickOutside.ts';
 import IconAdd from '@/components/icons/IconAdd.vue';
 import '@/style/list-variables.css';
-import {parse as json5Parse} from 'json5';
+import json5 from 'json5';
 import {readText, writeText} from 'clipboard-polyfill';
 import {cloneDeep} from 'lodash-es';
 import {isTargetInteractive} from '@/utils/checkInteractive.ts';
@@ -146,7 +146,7 @@ const handleKeyboardEvent = async (e: KeyboardEvent) => {
 
             const text = await readText();
             try {
-                const value = json5Parse(text);
+                const value = json5.parse(text);
                 const tempLines = [...lines.value];
 
                 const insertIndex =
