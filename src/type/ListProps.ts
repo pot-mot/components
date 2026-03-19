@@ -10,7 +10,7 @@ export interface ViewListProps<T> {
 
 export interface EditListProps<T> extends Omit<ViewListProps<T>, 'lines'> {
     defaultLine: T | (() => T | Promise<T>);
-    jsonValidator?: (json: any, onError?: ErrorHandler) => boolean | Promise<T>;
+    jsonValidator?: (json: any, onError: ErrorHandler) => boolean | Promise<T>;
     beforePaste?: (data: T[]) => void;
     afterPaste?: () => void;
 }
