@@ -1,0 +1,11 @@
+:root {
+    --list-line-bg-color: #fff;
+    --list-line-hover-bg-color: #eee;
+    --list-line-selected-bg-color: #89bdf4;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    --list-line-bg-color: #333;
+    --list-line-hover-bg-color: #444;
+    --list-line-selected-bg-color: #4889cc;
+}
