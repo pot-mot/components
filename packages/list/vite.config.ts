@@ -13,7 +13,7 @@ export default defineConfig({
             formats: ['es', 'umd'],
             fileName: 'index'
         },
-        rollupOptions: {
+        rolldownOptions: {
             external: ['vue'],
             output: {
                 globals: {
