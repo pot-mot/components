@@ -5,7 +5,8 @@ import type {IndexSelection} from '@/type/IndexSelection.ts';
  * ViewList 组件暴露的 API
  */
 export interface ViewListExpose {
-    bodyRef: Ref<HTMLElement | null>;
+    listRef: Ref<HTMLDivElement | null>;
+    bodyRef: Ref<HTMLDivElement | null>;
     indexSelection: IndexSelection;
 }
 

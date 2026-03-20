@@ -5,7 +5,9 @@
 }
 
 @media screen and (prefers-color-scheme: dark) {
-    --list-line-bg-color: #333;
-    --list-line-hover-bg-color: #444;
-    --list-line-selected-bg-color: #4889cc;
+    :root {
+        --list-line-bg-color: #333;
+        --list-line-hover-bg-color: #444;
+        --list-line-selected-bg-color: #4889cc;
+    }
 }

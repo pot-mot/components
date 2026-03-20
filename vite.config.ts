@@ -13,6 +13,14 @@ export default defineConfig({
             formats: ['es', 'umd'],
             fileName: 'index'
         },
+        rollupOptions: {
+            external: ['vue'],
+            output: {
+                globals: {
+                    vue: 'Vue'
+                }
+            }
+        },
     },
     resolve: {
         alias: {
@@ -24,6 +32,9 @@ export default defineConfig({
         dts({
             tsconfigPath: './tsconfig.app.json',
             include: ['src/**/*.ts', "src/**/*.vue"],
+            compilerOptions: {
+                declaration: true,
+            },
         })
     ],
     test: {

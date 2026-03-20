@@ -43,7 +43,7 @@
         "type-check": "vue-tsc --build --force",
         "build": "vue-tsc & vite build",
         "test": "vitest run",
-        "lint:pritter": "prettier --write src/"
+        "lint:prettier": "prettier --write src/"
     },
     "lint-staged": {
         "*.{js,ts,vue,json,css}": [
@@ -73,7 +73,9 @@
         "clipboard-polyfill": "^4.1.1",
         "json5": "^2.2.3",
         "lodash-es": "^4.17.23",
-        "mitt": "^3.0.1",
+        "mitt": "^3.0.1"
+    },
+    "peerDependencies": {
         "vue": "^3.5.30"
     }
 }

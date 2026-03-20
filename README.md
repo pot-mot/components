@@ -283,10 +283,12 @@ const removeFirst = async () => {
 
 #### EditListExpose
 
-| 方法 | 参数 | 返回值 | 说明 |
-|------|------|--------|------|
-| insert | `(index: number)` | `Promise<T>` | 在指定位置插入新行 |
-| remove | `(index: number)` | `Promise<T \| undefined>` | 删除指定位置的行 |
+| 方法             | 参数 | 返回值 | 说明 |
+|----------------|------|--------|------|
+| bodyRef        | `Ref<HTMLElement \| null>` | 列表主体引用 |
+| indexSelection | `IndexSelection` | 选择状态管理对象 |
+| insert         | `(index: number)` | `Promise<T>` | 在指定位置插入新行 |
+| remove         | `(index: number)` | `Promise<T \| undefined>` | 删除指定位置的行 |
 
 #### ViewListExpose
 

@@ -10,14 +10,7 @@ import json5 from 'json5';
 import {readText, writeText} from 'clipboard-polyfill';
 import {cloneDeep} from 'lodash-es';
 import {isTargetInteractive} from '@/utils/checkInteractive.ts';
-import type {EditListSlots} from '@/type/ListSlots.ts';
 import type {EditListExpose} from '@/type/ListExpose.ts';
-
-const listRef = useTemplateRef<HTMLDivElement>('listRef');
-const bodyRef = useTemplateRef<HTMLDivElement>('bodyRef');
-const focusList = () => {
-    listRef.value?.focus();
-};
 
 const lines = defineModel<T[]>('lines', {
     required: true,
@@ -26,7 +19,11 @@ const props = defineProps<EditListProps<T>>();
 
 const emits = defineEmits<EditListEmits<T>>();
 
-defineSlots<EditListSlots<T>>();
+const listRef = useTemplateRef<HTMLDivElement>('listRef');
+const bodyRef = useTemplateRef<HTMLDivElement>('bodyRef');
+const focusList = () => {
+    listRef.value?.focus();
+};
 
 const indexSelection = useIndexSelection();
 const onSelect = (index: number) => {
@@ -356,6 +353,7 @@ const remove = async (index: number): Promise<T | undefined> => {
 };
 
 defineExpose<EditListExpose<T>>({
+    listRef,
     bodyRef,
     indexSelection,
     insert,

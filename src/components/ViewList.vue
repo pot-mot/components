@@ -8,20 +8,17 @@ import '@/style/list-variables.css';
 import {writeText} from 'clipboard-polyfill';
 import {cloneDeep} from 'lodash-es';
 import {isTargetInteractive} from '@/utils/checkInteractive.ts';
-import type {ViewListSlots} from '@/type/ListSlots.ts';
 import type {ViewListExpose} from '@/type/ListExpose.ts';
+
+const props = defineProps<ViewListProps<T>>();
+
+const emits = defineEmits<ViewListEmits<T>>();
 
 const listRef = useTemplateRef<HTMLDivElement>('listRef');
 const bodyRef = useTemplateRef<HTMLDivElement>('bodyRef');
 const focusList = () => {
     listRef.value?.focus();
 };
-
-const props = defineProps<ViewListProps<T>>();
-
-const emits = defineEmits<ViewListEmits<T>>();
-
-defineSlots<ViewListSlots<T>>();
 
 const indexSelection = useIndexSelection();
 const onSelect = (index: number) => {
@@ -162,6 +159,7 @@ const handleKeyboardEvent = async (e: KeyboardEvent) => {
 };
 
 defineExpose<ViewListExpose>({
+    listRef,
     bodyRef,
     indexSelection,
 });
