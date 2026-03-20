@@ -1,0 +1,68 @@
+{
+    "name": "@potmot/list",
+    "private": false,
+    "version": "0.0.1",
+    "description": "Editable, Selectable. Simple ViewList and EditList components.",
+    "keywords": [
+        "list",
+        "selectable",
+        "editable"
+    ],
+    "homepage": "https://github.com/pot-mot/components/blob/master/packages/list/README.md",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pot-mot/components.git",
+        "directory": "dist"
+    },
+    "bugs": {
+        "url": "https://github.com/pot-mot/components/issues"
+    },
+    "type": "module",
+    "license": "MIT",
+    "author": "potmot",
+    "main": "./dist/index.umd.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.umd.cjs"
+        },
+        "./*": "./*"
+    },
+    "files": [
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "type-check": "vue-tsc --build --force",
+        "build": "vue-tsc -b & vite build",
+        "test": "vitest run",
+        "lint:prettier": "prettier --write src/"
+    },
+    "devDependencies": {
+        "@tsconfig/node22": "^22.0.5",
+        "@types/jsdom": "^28.0.0",
+        "@types/lodash-es": "^4.17.12",
+        "@vitest/coverage-v8": "^4.1.0",
+        "@vue/test-utils": "^2.4.6",
+        "jsdom": "^29.0.0",
+        "vite-plugin-dts": "^4.5.4",
+        "vitest": "^4.1.0",
+        "vue-tsc": "^3.2.6"
+    },
+    "dependencies": {
+        "clipboard-polyfill": "^4.1.1",
+        "json5": "^2.2.3",
+        "lodash-es": "^4.17.23",
+        "mitt": "^3.0.1"
+    },
+    "peerDependencies": {
+        "vue": "^3.5.30"
+    }
+}

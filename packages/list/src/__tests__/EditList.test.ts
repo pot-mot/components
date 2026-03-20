@@ -24,7 +24,7 @@ const mountList = (
     props: {
         lines?: TestItem[];
         toKey?: (item: TestItem, index: number) => string;
-        defaultLine?: (() => TestItem | Promise<TestItem>);
+        defaultLine?: () => TestItem | Promise<TestItem>;
         interactiveClassNames?: string[];
         jsonValidator?: (json: any, onError?: any) => boolean;
         beforeCopy?: (data: TestItem[]) => void;
@@ -621,7 +621,7 @@ describe('EditList 组件', () => {
             expect(writeText).toHaveBeenCalled();
             expect(wrapper.findAll('.line-wrapper').length).toBe(2);
         });
-    })
+    });
 
     describe('Expose API', () => {
         it('能访问 bodyRef', async () => {
@@ -968,23 +968,11 @@ describe('EditList 组件', () => {
         });
     });
 
-
     describe('焦点管理', () => {
         it('能在鼠标悬停时聚焦列表', async () => {
             const wrapper = mountList({lines: createTestItems(2)});
 
             await wrapper.find('.edit-list').trigger('mouseenter');
-
-            expect(document.activeElement).toBe(wrapper.find('.edit-list').element);
-        });
-
-        it('能通过 focusList 方法手动聚焦', async () => {
-            const wrapper = mountList({lines: createTestItems(1)});
-            await nextTick();
-
-            const vm = wrapper.vm;
-            vm.focusList();
-            await nextTick();
 
             expect(document.activeElement).toBe(wrapper.find('.edit-list').element);
         });

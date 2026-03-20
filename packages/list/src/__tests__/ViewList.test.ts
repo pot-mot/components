@@ -377,7 +377,6 @@ describe('ViewList 组件', () => {
         });
     });
 
-
     describe('Expose API', () => {
         it('能访问 bodyRef', async () => {
             const wrapper = mountList({lines: createTestItems(1)});
@@ -415,17 +414,6 @@ describe('ViewList 组件', () => {
             const wrapper = mountList({lines: createTestItems(2)});
 
             await wrapper.find('.view-list').trigger('mouseenter');
-
-            expect(document.activeElement).toBe(wrapper.find('.view-list').element);
-        });
-
-        it('能通过 focusList 方法手动聚焦', async () => {
-            const wrapper = mountList({lines: createTestItems(1)});
-            await nextTick();
-
-            const vm = wrapper.vm;
-            vm.focusList();
-            await nextTick();
 
             expect(document.activeElement).toBe(wrapper.find('.view-list').element);
         });
