@@ -4,14 +4,14 @@
     "version": "0.0.1",
     "description": "",
     "keywords": [],
-    "homepage": "https://github.com/pot-mot/components/blob/main/README.md",
+    "homepage": "https://github.com/pot-mot/pot-components/blob/master/README.md",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/pot-mot/components.git",
+        "url": "git+https://github.com/pot-mot/pot-components.git",
         "directory": "dist"
     },
     "bugs": {
-        "url": "https://github.com/pot-mot/components/issues"
+        "url": "https://github.com/pot-mot/pot-components/issues"
     },
     "type": "module",
     "license": "MIT",
