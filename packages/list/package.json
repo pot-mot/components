@@ -1,7 +1,7 @@
 {
     "name": "@potmot/list",
     "private": false,
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Editable, Selectable. Simple ViewList and EditList components.",
     "keywords": [
         "list",
