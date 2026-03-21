@@ -1,42 +1,58 @@
 /// <reference types="vitest/config" />
-import {defineConfig} from "vite";
-import vue from '@vitejs/plugin-vue'
-import dts from "vite-plugin-dts";
-import {resolve} from "path";
+import {defineConfig} from 'vite';
+import vue from '@vitejs/plugin-vue';
+import {resolve} from 'path';
+import dts from 'vite-plugin-dts';
 import {fileURLToPath, URL} from 'node:url';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-    build: {
-        lib: {
-            entry: resolve(__dirname, 'src/index.ts'),
-            name: '@potmot/list',
-            formats: ['es', 'umd'],
-            fileName: 'index'
-        },
-        rolldownOptions: {
-            external: ['vue'],
-            output: {
-                globals: {
-                    vue: 'Vue'
-                }
-            }
-        },
-    },
     resolve: {
         alias: {
-            '@': fileURLToPath(new URL('./src', import.meta.url))
+            '@': fileURLToPath(new URL('./src', import.meta.url)),
         },
     },
     plugins: [
         vue(),
         dts({
-            tsconfigPath: './tsconfig.app.json',
-            include: ['src/**/*.ts', "src/**/*.vue"],
+            outDir: ['es', 'lib'],
+            tsconfigPath: resolve(__dirname, 'tsconfig.app.json'),
             compilerOptions: {
-                declaration: true,
+                baseUrl: '.',
             },
-        })
+        }),
     ],
+
+    build: {
+        rolldownOptions: {
+            external: ['vue'],
+            input: './src/index.ts',
+
+            output: [
+                {
+                    format: 'es',
+                    entryFileNames: '[name].js',
+                    //配置打包根目录
+                    dir: 'es',
+                },
+                {
+                    //打包格式
+                    format: 'cjs',
+                    //打包后文件名
+                    entryFileNames: '[name].js',
+                    //配置打包根目录
+                    dir: 'lib',
+                },
+            ],
+        },
+        lib: {
+            entry: './index.ts',
+            name: '@potmot/list',
+            fileName: 'index',
+            formats: ['es', 'umd', 'cjs'],
+        },
+    },
+
     test: {
         globals: false,
         environment: 'jsdom',

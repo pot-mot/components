@@ -20,13 +20,13 @@
     "type": "module",
     "license": "MIT",
     "author": "potmot",
-    "main": "./dist/index.umd.cjs",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "types": "es/index.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/index.js",
-            "require": "./dist/index.umd.cjs"
+            "import": "./es/index.js",
+            "require": "./lib/index.js"
         },
         "./*": "./*"
     },
@@ -34,7 +34,8 @@
         "package.json",
         "README.md",
         "LICENSE",
-        "dist"
+        "es",
+        "lib"
     ],
     "publishConfig": {
         "access": "public"
